@@ -1,0 +1,59 @@
+body {
+	background-image: url(tischoberfläche.jpg);
+}
+
+h1 {
+	font-style:  oblique;
+	font-size: 100px;
+	color: black;
+	text-align: center;
+	font-family: "Bernard MT Condensed";
+}
+
+.schriftgroeße {
+	font-size: 50px;
+}
+
+h2{
+	font-style:  italic;
+	font-size: 50px;
+	color: black;
+	text-align: center;
+	font-family: "Arial";
+}
+
+h3{
+	font-size: 25px;
+	color: black;
+	text-align: center;
+	font-family: "Arial";
+}
+
+h4{
+	font-size: 20px;
+	color: black;
+	font-family: "Arial";
+}
+
+
+h5{
+	color: black;
+	font-family: "Arial";
+	text-align: right;
+}
+
+.flexibles_div1 div {
+	border: 2px solid black;
+	width: 200px;
+	height: 130px;
+}
+
+.flexibles_div1{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+
+}
