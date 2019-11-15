@@ -20,9 +20,8 @@ body {
     background-color: rgb(212, 227, 237);
 }
 
-main {
-    background-color: rgb(230, 230, 230);
-    padding: 0.5em 0.5em 5em 0.5em;
+h1 {
+    text-align: center;
 }
 
 .hidden {
