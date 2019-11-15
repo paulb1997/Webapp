@@ -20,7 +20,10 @@
   },
   "homepage": "https://github.com/jannisschalk-dhbw/test-project#readme",
   "devDependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "dexie": "^2.0.4",
     "navigo": "^7.1.2",
     "parcel-bundler": "^1.12.4"
-  }
+  },
+  "dependencies": {}
 }
