@@ -1,3 +1,5 @@
+"use strict";
+
 import stylesheet from "./memoryspiel.css";
 import overview from "./memoryspiel.html";
 
@@ -5,7 +7,6 @@ function showUsername(){
 	var name = $('#username_input').val();
 	$('#username').html('Hallo '+name+ '  :)');
 	$('#username_container').slideUp();
-
 }
 
 	var ersteKarte=0;
@@ -55,8 +56,8 @@ temporaryValue = array[currentIndex];     array[currentIndex] = array[randomInde
 
 
 function karteZurueck() {
-	$('*[data-kartenpaar="'+ersteKarte+'"]').html('<img src="memoryRückseite.jpg">');
-	$('*[data-kartenpaar="'+zweiteKarte+'"]').html('<img src="memoryRückseite.jpg">');
+	$('*[data-kartenpaar="'+ersteKarte+'"]').html('<img src="memoryRückseite.png">');
+	$('*[data-kartenpaar="'+zweiteKarte+'"]').html('<img src="memoryRückseite.png">');
 	ersteKarte=0;
 	zweiteKarte=0;
 }

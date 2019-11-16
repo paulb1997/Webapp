@@ -1,5 +1,5 @@
 body {
-	background-color: lightblue;
+	background-color: rgb(46,139,87);
 }
 
 h1 {
@@ -58,10 +58,37 @@ h5{
 }
 
 .zurück{
-	border: black;
-	background-color: white;
+	border: medium solid rgb(255,127,036);
+	background-color: rgb(255,127,036);
+	color: white;
+}
+.zurück:focus {
+border: medium dotted white;
+}
+.zurück:active {
+border: medium dotted red;
 }
 
 .erneutSpielen{
+	border: medium solid rgb(255,127,036);
+	background-color: rgb(255,127,036);
+	color: white;
+}
+.erneutSpielen:focus {
+border: medium dotted white;
+}
+.erneutSpielen:active {
+border: medium dotted red;
+}
 
+.rangliste{
+	border: medium solid rgb(255,127,036);
+	background-color: rgb(255,127,036);
+	color: white;
+}
+.rangliste:focus {
+border: medium dotted white;
+}
+.rangliste:active {
+border: medium dotted red;
 }
