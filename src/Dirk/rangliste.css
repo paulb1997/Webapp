@@ -17,6 +17,8 @@ h1{
     margin-top: 50px;
     font-style: oblique;
     font-size: 150px;
+    color: purple;
+    text-decoration: underline;
 }
 
 #links{
