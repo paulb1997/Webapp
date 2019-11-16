@@ -1,5 +1,5 @@
-import stylesheet from "./Memoryspiel.css";
-import overview from "./Memoryspiel.html";
+import stylesheet from "./memoryspiel.css";
+import overview from "./memoryspiel.html";
 
 function showUsername(){
 	var name = $('#username_input').val();
