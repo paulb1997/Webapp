@@ -18,4 +18,6 @@ let database= new Dexie("Memory");
      });
      }
 
-document.querySelectio("")
+document.querySelector("anmelden").addEventListener("click",function(e) {
+    add_new(document.getElementById("name").value,document.getElementById("user").value);
+});
