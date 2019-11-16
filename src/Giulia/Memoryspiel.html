@@ -1,33 +1,24 @@
-<!DOCTYPE html>
-<html>
+<section id="memoryspiel" class="hidden">
 <head>
 		<title> Memory-Spiel </title>
 		<meta charset= "UTF-8">
-		<link rel="stylesheet" href="Memory.css">
+		<link rel="stylesheet" href="memoryspiel.css">
 		<script src="jquery-3.1.1.min.js"> </script>
-		<script src="Memory.js"> </script>
-
-
-
+		<script src="memoryspiel.js"> </script>
 </head>
 <body>
 		<h1> Memory-Spiel </h1>
 		<h1 class="schriftgroeße"> Finde die Paare </h1>
 
 	<div >
-		<a href= "leichtesMemory.html"> Seite neu laden &#8635; </a>
+		<a href= "memoryspiel.html">Erneut spielen &#8635; </a>
 	</div>
 
 	<div>
-		<a href= "Memory.html">  Hier gehts zurück </a>
+		<a href= "../Paul/startseite.html">Zurück zum anmelden </a>
 	</div>
 
 	<h3> <div id="username"></div> </h3>
-
-	<div id="username_container">
-		<input id="username_input" type="text" placeholder="Name eingeben">
-		<button id="username_confirm" onclick="showUsername()">Bestätigen</button>
-	</div>
 
 	<h4> <div id="klickZaehler">
 			Klicks:
@@ -38,7 +29,7 @@
 	</div> </h4>
 
 	<h5> <div>
-		<button onclick = "ausblenden()"> Klick mich, wenn du mit dem Memory fertig bist! :) </button>
+		<a class="nav-link" href="../Dirk/rangliste.html"><button> Rangliste </button></a>
 	</div> </h5>
 
 		<br>
@@ -124,4 +115,4 @@
 		<br>
 
 </body>
-</html>
+</section>

@@ -2,10 +2,10 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Memory</title>
+        <title>My Songbook</title>
 
         <script src="app.js"></script>
-        <script src="index.js"></script>
+        <script src="startseite.js"></script>
 
         <link
             rel="stylesheet"
@@ -42,16 +42,25 @@
                 <nav class="navbar navbar-expand-sm bg-light">
                     <ul class="navbar-nav">
                         <li class="nav-item">
+                            <a class="nav-link" href="Dirk/rangliste.html">Rangliste</a>
+                        </li>
+                        <li class="nav-item">
                           <a class="nav-link disabled" href="#">Disabled</a>
                         </li>
                     </ul>
                 </nav>
             </header>
+
             <main>
                 <!-- dynamic content goes here -->
                 <h1 class="überschrift1">Herzlich Willkommen bei unserem Memoryspiel!</h1>
-                <h2>Um Memory spielen zu können, musst du dich hier anmelden.</h2>
-                <a class="nav-link" href="Paul/startseite.html"><button class="button">Anmelden</button></a>
+                <h2>Um Memory spielen zu können, musst du hier einen Benutzername eingeben.</h2>
+                <form>
+                    <label for="user">Benutzername:
+                        <input type="text" id="user" name="user">
+                    </label>
+                </form>
+                <a class="nav-link" href="../Giulia/memoryspiel.html"><button class="button" id="anmelden">Anmelden</button>
             </main>
         </section>
         <section id="detail" class="hidden">
