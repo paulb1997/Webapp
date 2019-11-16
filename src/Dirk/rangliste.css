@@ -1,0 +1,29 @@
+body{
+    background-color: lightgreen;
+}
+table{
+    border: 20px double yellow;
+    border-radius: 20px;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+td{
+    padding: 30px;
+}
+h1{
+    text-align: center;
+    margin-bottom: 60px;
+    margin-top: 50px;
+}
+#links{
+    float: left;
+    width: 200px;;
+    height: 200px;
+}
+#rechts{
+    float: right;
+    width: 200px;
+    height: 200px;
+    transform: scaleX(-1);
+}
