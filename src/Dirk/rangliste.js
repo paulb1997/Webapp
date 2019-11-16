@@ -1,6 +1,7 @@
 "use strict";
 
-import stylesheet from "./detail.css";
+import stylesheet from "./rangliste.css";
+import overview from "./rangliste.html";
 
 class Detail {
     constructor(app, id, mode){
