@@ -1,106 +1,83 @@
 <section id="memoryspiel" class="hidden">
 <head>
-		<title> Memory-Spiel </title>
-		<script src="app.js"></script>
-		<link rel="stylesheet" href="memoryspiel.css">
-		<script src="jquery-3.1.1.min.js"> </script>
-		<script src="memoryspiel.js"> </script>
+    <title> Memory-Spiel </title>
+    <script src="app.js"></script>
+    <script src="memoryspiel.js"></script>
+    <link rel="stylesheet" href="memoryspiel.css">
+<script>
+    var memory_array = ['&#128519;','&#128519;','&#128520;','&#128520;','&#128526;','&#128526;','&#128513;','&#128513;','&#128514;','&#128514;','&#128521;','&#128521;','&#128525;','&#128525;','&#128523;','&#128523;','&#128527;','&#128527;','&#128512;','&#128512;'];
+    var memory_values = [];
+    var memory_tile_ids = [];
+    var tiles_flipped = 0;
+    var klickZaehler = 0;
+    Array.prototype.memory_tile_shuffle = function(){
+        var i = this.length, j, temp;
+        while(--i > 0){
+            j = Math.floor(Math.random() * (i+1));
+            temp = this[j];
+            this[j] = this[i];
+            this[i] = temp;
+        }
+    }
+    function newBoard(){
+    	tiles_flipped = 0;
+    	var output = '';
+        memory_array.memory_tile_shuffle();
+    	for(var i = 0; i < memory_array.length; i++){
+    		output += '<div id="tile_'+i+'" onclick="memoryFlipTile(this,\''+memory_array[i]+'\')"></div>';
+    	}
+    	document.getElementById('memory_board').innerHTML = output;
+    }
+
+    window.addEventListener('load',newBoard);
+
+    function memoryFlipTile(tile,val){
+    	if(tile.innerHTML == "" && memory_values.length < 2){
+    		tile.style.background = '#FFF';
+    		tile.innerHTML = val;
+    		if(memory_values.length == 0){
+    			memory_values.push(val);
+    			memory_tile_ids.push(tile.id);
+    		} else if(memory_values.length == 1){
+    			memory_values.push(val);
+    			memory_tile_ids.push(tile.id);
+    			if(memory_values[0] == memory_values[1]){
+    				tiles_flipped += 2;
+    				memory_values = [];
+                	memory_tile_ids = [];
+    				if(tiles_flipped == memory_array.length){
+    					alert("Board cleared... generating new board");
+    					document.getElementById('memory_board').innerHTML = "";
+    					newBoard();
+    				}
+    			} else {
+    				function flip2Back(){
+    				    var tile_1 = document.getElementById(memory_tile_ids[0]);
+    				    var tile_2 = document.getElementById(memory_tile_ids[1]);
+    				    tile_1.style.background = 'url(memoryRückseite.png) no-repeat';
+                	    tile_1.innerHTML = "";
+    				    tile_2.style.background = 'url(memoryRückseite.png) no-repeat';
+                	    tile_2.innerHTML = "";
+    				    memory_values = [];
+                	    memory_tile_ids = [];
+    				}
+    				setTimeout(flip2Back, 700);
+    			}
+    		}
+    	}
+    }
+</script>
 </head>
 <body>
-		<a href= "../Paul/startseite.html"><button class="zurück">Zurück zum Anmelden</button></a>
-		<a href="../Dirk/rangliste.html"><button class="rangliste"> Rangliste </button></a>
-		<a href= "memoryspiel.html"><button class="erneutSpielen">Erneut spielen &#8635;</button></a>
-	<main>
-		<h1 class="schriftgroeße"> Finde die Paare </h1>
+    <a href= "../Paul/startseite.html"><button class="zurück">Zurück zum Anmelden</button></a>
+    <a href="../Dirk/rangliste.html"><button class="rangliste"> Rangliste </button></a>
+    <a href= "memoryspiel.html"><button class="erneutSpielen">Erneut spielen &#8635;</button></a>
 
-	<h3> <div id="username"></div> </h3>
-
-	<h4> <div id="klickZaehler">
-			Klicks:
-			  0
-	</div> </h4>
-
-	<br>
-
-	<div class="flexibles_div1">
-			<div  class="karte" id="karte-1" data-Kartenpaar="1" onclick="kartenwechsel(1)" data="karte-01">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-			<div class="karte" id="karte-2" data-Kartenpaar="2" onclick="kartenwechsel(2)" data="karte-2">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-			<div class="karte" id="karte-3" data-Kartenpaar="3" onclick="kartenwechsel(3)" data="karte-3">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-			<div class="karte" id="karte-4" data-Kartenpaar="4" onclick="kartenwechsel(4)" data="karte-4">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-			<div class="karte" id="karte-5" data-Kartenpaar="5" onclick="kartenwechsel(5)" data="karte-5">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-	</div>
-
-		<br>
-
-	<div class="flexibles_div1">
-			<div class="karte" id="karte-14" data-Kartenpaar="4" onclick="kartenwechsel(14)" data="karte-14">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-			<div class="karte" id="karte-6" data-Kartenpaar="6" onclick="kartenwechsel(6)" data="karte-6" >
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-			<div class="karte" id="karte-7" data-Kartenpaar="7" onclick="kartenwechsel(7)" data="karte-7">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-			<div class="karte" id="karte-12" data-Kartenpaar="2"onclick="kartenwechsel(12)" data="karte-12">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-			<div class="karte" id="karte-15" data-Kartenpaar="5" onclick="kartenwechsel(15)" data="karte-15">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-	</div>
-
-		<br>
-
-	<div class="flexibles_div1">
-			<div class="karte" id="karte-17" data-Kartenpaar="7" onclick="kartenwechsel(17)" data="karte-17">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-			<div class="karte" id="karte-8" data-Kartenpaar="8" onclick="kartenwechsel(8)" data="karte-8">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-			<div  class="karte" id="karte-11" data-Kartenpaar="1" onclick="kartenwechsel(11)" data="karte-11">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-			<div class="karte" id="karte-9" data-Kartenpaar="9" onclick="kartenwechsel(9)" data="karte-9">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-			<div class="karte" id="karte-10" data-Kartenpaar="10" onclick="kartenwechsel(10)" data="karte-10">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-	</div>
-
-		<br>
-
-	<div class="flexibles_div1">
-			<div class="karte" id="karte-13" data-Kartenpaar="3" onclick="kartenwechsel(13)" data="karte-13">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-			<div class="karte" id="karte-20" data-Kartenpaar="10" onclick="kartenwechsel(20)" data="karte-20">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-			<div class="karte" id="karte-19" data-Kartenpaar="9" onclick="kartenwechsel(19)" data="karte-19">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-			<div class="karte" id="karte-18" data-Kartenpaar="8" onclick="kartenwechsel(18)" data="karte-18">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-			<div class="karte" id="karte-16" data-Kartenpaar="6" onclick="kartenwechsel(16)" data="karte-16">
-				<img src="memoryRückseite.png" alt="Rückseite">
-			</div>
-	</div>
-
-		<br>
-		</main>
+    <h1 class="schriftgroeße"> Finde die Paare </h1>
+    <h4> <div id="klickZaehler">
+            Klicks:
+              0
+    </div> </h4>
+<div id="memory_board"></div>
 </body>
 </section>

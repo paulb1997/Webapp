@@ -3,72 +3,65 @@
 import stylesheet from "./memoryspiel.css";
 import overview from "./memoryspiel.html";
 
-function showUsername(){
-	var name = $('#user').val();
-	$('#username').html('Hallo '+name+);
+var memory_array = ['&#128519;','&#128519;','&#128520;','&#128520;','&#128526;','&#128526;','&#128513;','&#128513;','&#128514;','&#128514;','&#128521;','&#128521;','&#128525;','&#128525;','&#128523;','&#128523;','&#128527;','&#128527;','&#128512;','&#128512;'];
+var memory_values = [];
+var memory_tile_ids = [];
+var tiles_flipped = 0;
+
+Array.prototype.memory_tile_shuffle = function(){
+    var i = this.length, j, temp;
+    while(--i > 0){
+        j = Math.floor(Math.random() * (i+1));
+        temp = this[j];
+        this[j] = this[i];
+        this[i] = temp;
+    }
 }
-
-	var ersteKarte=0;
-	var zweiteKarte=0;
-	var klickZaehler=0;
-	var startzeit=0;
-	var allePaare=10;
-	var gefundenePaare=0;
-
-function zeitzaehler(){
-	jetzt = new Date();
-	$('#zeit').html(Math.round((jetzt-startzeit)/1000));
-}
-setInterval(zeitzaehler, 1000);
-
-function kartenwechsel(kartennummer){
-	klickZaehler++;
-	$('#klickZaehler').html('Klicks:'+ klickZaehler);
-	$('#karte-'+kartennummer).html('<img src="Karte-'+kartennummer+'.jpg" alt="Motivkarte">');
-	if(ersteKarte==0){
-		ersteKarte=$('#karte-'+kartennummer).data('kartenpaar');
-	} else{
-		zweiteKarte=$('#karte-'+kartennummer).data('kartenpaar');
-	if(ersteKarte==zweiteKarte){
-
-		ersteKarte=0;
-		zweiteKarte=0;
-		gefundenePaare++;
-
-	} else{
-		setTimeout(karteZurueck, 500);
+function newBoard(){
+	tiles_flipped = 0;
+	var output = '';
+    memory_array.memory_tile_shuffle();
+	for(var i = 0; i < memory_array.length; i++){
+		output += '<div id="tile_'+i+'" onclick="memoryFlipTile(this,\''+memory_array[i]+'\')"></div>';
 	}
+	document.getElementById('memory_board').innerHTML = output;
+}
+newBoard();
+
+function memoryFlipTile(tile,val){
+	if(tile.innerHTML == "" && memory_values.length < 2){
+		tile.style.background = '#FFF';
+		tile.innerHTML = val;
+		if(memory_values.length == 0){
+			memory_values.push(val);
+			memory_tile_ids.push(tile.id);
+		} else if(memory_values.length == 1){
+			memory_values.push(val);
+			memory_tile_ids.push(tile.id);
+			if(memory_values[0] == memory_values[1]){
+				tiles_flipped += 2;
+				// Clear both arrays
+				memory_values = [];
+            	memory_tile_ids = [];
+				// Check to see if the whole board is cleared
+				if(tiles_flipped == memory_array.length){
+					alert("Board cleared... generating new board");
+					document.getElementById('memory_board').innerHTML = "";
+					newBoard();
+				}
+			} else {
+				function flip2Back(){
+				    var tile_1 = document.getElementById(memory_tile_ids[0]);
+				    var tile_2 = document.getElementById(memory_tile_ids[1]);
+				    tile_1.style.background = 'url(memoryRückseite.png) no-repeat';
+            	    tile_1.innerHTML = "";
+				    tile_2.style.background = 'url(memoryRückseite.png) no-repeat';
+            	    tile_2.innerHTML = "";
+				    memory_values = [];
+            	    memory_tile_ids = [];
+				}
+				setTimeout(flip2Back, 700);
+			}
+		}
 	}
 }
-
-//Eine Funktion zum Kartenmischen
-function shuffle(array) {   var currentIndex = array.length, temporaryValue, randomIndex ;
-while (0 !== currentIndex) {
-randomIndex = Math.floor(Math.random() * currentIndex);     currentIndex -= 1;
-temporaryValue = array[currentIndex];     array[currentIndex] = array[randomIndex];     array[randomIndex] = temporaryValue;   }
-  return array;
-}
-
-
-
-function karteZurueck() {
-	$('*[data-kartenpaar="'+ersteKarte+'"]').html('<img src="memoryRückseite.png">');
-	$('*[data-kartenpaar="'+zweiteKarte+'"]').html('<img src="memoryRückseite.png">');
-	ersteKarte=0;
-	zweiteKarte=0;
-}
-
-function ausblenden(){
-	$(".flexibles_div1").hide();
-	alert("Herzlichen Glückwunsch " +$('#username_input').val()+ ", du hast das Memory erfolgreich zu Ende gespielt :)");
-}
-
-
-
-
-
-/*function glückwunsch() {
-	if (allePaare==gefundenePaare){
-	alert "Herzlichen Glückwunsch!";
-	}
-}*/
