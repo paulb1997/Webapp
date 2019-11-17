@@ -71,6 +71,13 @@ import Memoryspiel from "./Giulia/Memoryspiel.js";
             app.className = content.className;
         }
 
+
+        if (content && content.topbar) {
+            content.topbar.forEach(element => {
+                element.classList.add("bottom");
+                header.appendChild(element);
+            });
+        }
         // Neue Inhalte des Hauptbereichs einfügen
         if (content && content.main) {
             content.main.forEach(element => {
@@ -78,16 +85,6 @@ import Memoryspiel from "./Giulia/Memoryspiel.js";
             });
         }
     }
-
-    showOverview() {
-        let view = new Overview(this);
-        this._switchVisibleView(view);
-    }
-
-    showDetail(id, mode){
-        let view = new Detail(this, id, mode);
-        this._switchVisibleView(view);
-    }
-    }
+}
 
     export default App;

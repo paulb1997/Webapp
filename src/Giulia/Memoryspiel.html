@@ -66,6 +66,42 @@
     		}
     	}
     }
+
+    (function () {
+      var timeContainer = document.getElementById("timer-value");
+      var startButton = document.getElementById("start-game");
+      var timer = 0;
+      var maxTime = 120;
+      var timeout = null;
+      function count () {
+        timeout = setTimeout(function () {
+          if (timer < maxTime) {
+            timer++;
+            timeContainer.innerText = timer;
+            count();
+          }
+          else {
+            alert("Die Zeit ist leider vorbei!");
+            startButton.style.display = "inline-block";
+          }
+        }, 1000);
+      }
+      function endGame () {
+        clearTimeout(timeout);
+        startButton.style.display = "inline-block";
+        alert("Herzlichen Glückwunsch! Du hast das Memory in der vorgegebenen Zeit geschaft.");
+      }
+      function startGame () {
+        if (timeout) { clearTimeout(timeout); }
+        timer = 0;
+        timeContainer.innerText = timer;
+        this.style.display = "none";
+        count();
+      }
+      document.getElementById("start-game").addEventListener("click", startGame);
+      document.getElementById("end-game").addEventListener("click", endGame);
+    })();
+
 </script>
 </header>
 <body>
@@ -74,6 +110,10 @@
     <a href= "memoryspiel.html"><button class="erneutSpielen">Erneut spielen &#8635;</button></a>
 
     <h1 class="schriftgroeße"> Finde die Paare </h1>
+
+    <h3>Timer: <span id="timer-value">0</span></h3>
+    <button id="start-game">Start Game</button> <button id="end-game">End Game</button>
+
     <div id="klickZaehler">
             Klicks:
               0
