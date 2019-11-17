@@ -66,12 +66,11 @@
     		}
     	}
     }
-
     (function () {
       var timeContainer = document.getElementById("timer-value");
       var startButton = document.getElementById("start-game");
       var timer = 0;
-      var maxTime = 120;
+      var maxTime = 30;
       var timeout = null;
       function count () {
         timeout = setTimeout(function () {
@@ -81,7 +80,7 @@
             count();
           }
           else {
-            alert("Die Zeit ist leider vorbei!");
+            alert("Time's up!");
             startButton.style.display = "inline-block";
           }
         }, 1000);
@@ -89,7 +88,7 @@
       function endGame () {
         clearTimeout(timeout);
         startButton.style.display = "inline-block";
-        alert("Herzlichen Glückwunsch! Du hast das Memory in der vorgegebenen Zeit geschaft.");
+        alert("You completed the game in time!");
       }
       function startGame () {
         if (timeout) { clearTimeout(timeout); }
@@ -101,7 +100,6 @@
       document.getElementById("start-game").addEventListener("click", startGame);
       document.getElementById("end-game").addEventListener("click", endGame);
     })();
-
 </script>
 </header>
 <body>
