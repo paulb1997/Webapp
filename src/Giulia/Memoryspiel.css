@@ -13,22 +13,7 @@ h1 {
 	font-size: 50px;
 }
 
-h2{
-	font-style:  italic;
-	font-size: 50px;
-	color: black;
-	text-align: center;
-	font-family: "Arial";
-}
-
-h3{
-	font-size: 25px;
-	color: black;
-	text-align: center;
-	font-family: "Arial";
-}
-
-h4{
+#klickZaehler{
 	font-size: 20px;
 	color: black;
 	font-family: "Arial";
