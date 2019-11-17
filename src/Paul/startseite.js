@@ -1,4 +1,6 @@
 import Dexie from "dexie/dist/dexie.js";
+import stylesheet from "./startseite.css";
+import overview from "./startseite.html";
 
 let database= new Dexie("Memory");
  database.version(1).stores({

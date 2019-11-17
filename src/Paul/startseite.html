@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html>
+<section>
     <head>
         <meta charset="utf-8" />
-        <title>My Songbook</title>
+        <title>Memory-Spiel</title>
 
         <script src="app.js"></script>
+        <link rel="stylesheet" href="startseite.css">
         <script src="startseite.js"></script>
 
         <link
@@ -39,16 +39,7 @@
     <body>
         <section id="app">
             <header>
-                <nav class="navbar navbar-expand-sm bg-light">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="Dirk/rangliste.html">Rangliste</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link disabled" href="#">Disabled</a>
-                        </li>
-                    </ul>
-                </nav>
+                <a class="nav-link" href="Dirk/rangliste.html"><button>Rangliste</button></a>
             </header>
 
             <main>
@@ -60,12 +51,7 @@
                         <input type="text" id="user" name="user">
                     </label>
                 </form>
-                <a class="nav-link" href="../Giulia/memoryspiel.html"><button class="button" id="anmelden">Anmelden</button>
+                <a class="nav-link" href="../Giulia/memoryspiel.html"><button class="button" id="anmelden" onclick="showUsername()">Anmelden</button>
             </main>
-        </section>
-        <section id="detail" class="hidden">
-            <main>
-            </main>
-        </section>
     </body>
-</html>
+</section>

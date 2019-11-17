@@ -1,11 +1,11 @@
+"use strict";
+
 import stylesheet from "./memoryspiel.css";
 import overview from "./memoryspiel.html";
 
 function showUsername(){
-	var name = $('#username_input').val();
-	$('#username').html('Hallo '+name+ '  :)');
-	$('#username_container').slideUp();
-
+	var name = $('#user').val();
+	$('#username').html('Hallo '+name+);
 }
 
 	var ersteKarte=0;
@@ -22,9 +22,6 @@ function zeitzaehler(){
 setInterval(zeitzaehler, 1000);
 
 function kartenwechsel(kartennummer){
-	if(startzeit==0){
-		startzeit = new Date();
-	}
 	klickZaehler++;
 	$('#klickZaehler').html('Klicks:'+ klickZaehler);
 	$('#karte-'+kartennummer).html('<img src="Karte-'+kartennummer+'.jpg" alt="Motivkarte">');
@@ -55,8 +52,8 @@ temporaryValue = array[currentIndex];     array[currentIndex] = array[randomInde
 
 
 function karteZurueck() {
-	$('*[data-kartenpaar="'+ersteKarte+'"]').html('<img src="memoryRückseite.jpg">');
-	$('*[data-kartenpaar="'+zweiteKarte+'"]').html('<img src="memoryRückseite.jpg">');
+	$('*[data-kartenpaar="'+ersteKarte+'"]').html('<img src="memoryRückseite.png">');
+	$('*[data-kartenpaar="'+zweiteKarte+'"]').html('<img src="memoryRückseite.png">');
 	ersteKarte=0;
 	zweiteKarte=0;
 }

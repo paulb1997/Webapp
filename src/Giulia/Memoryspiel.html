@@ -1,21 +1,17 @@
 <section id="memoryspiel" class="hidden">
 <head>
 		<title> Memory-Spiel </title>
-		<meta charset= "UTF-8">
+		<script src="app.js"></script>
 		<link rel="stylesheet" href="memoryspiel.css">
 		<script src="jquery-3.1.1.min.js"> </script>
 		<script src="memoryspiel.js"> </script>
 </head>
 <body>
-	<div class="zurück">
-		<a href= "../Paul/startseite.html"><button>Zurück zum Anmelden</button></a>
-	</div>
-		<h1> Memory-Spiel </h1>
+		<a href= "../Paul/startseite.html"><button class="zurück">Zurück zum Anmelden</button></a>
+		<a href="../Dirk/rangliste.html"><button class="rangliste"> Rangliste </button></a>
+		<a href= "memoryspiel.html"><button class="erneutSpielen">Erneut spielen &#8635;</button></a>
+	<main>
 		<h1 class="schriftgroeße"> Finde die Paare </h1>
-
-	<div class="erneutSpielen">
-		<a href= "memoryspiel.html"><button>Erneut spielen &#8635;</button></a>
-	</div>
 
 	<h3> <div id="username"></div> </h3>
 
@@ -24,14 +20,7 @@
 			  0
 	</div> </h4>
 
-	<h4> <div id="zeit">
-	</div> </h4>
-
-	<h5> <div>
-		<a class="nav-link" href="../Dirk/rangliste.html"><button> Rangliste </button></a>
-	</div> </h5>
-
-		<br>
+	<br>
 
 	<div class="flexibles_div1">
 			<div  class="karte" id="karte-1" data-Kartenpaar="1" onclick="kartenwechsel(1)" data="karte-01">
@@ -112,6 +101,6 @@
 	</div>
 
 		<br>
-
+		</main>
 </body>
 </section>

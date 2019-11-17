@@ -1,5 +1,5 @@
 body {
-	background-color: lightblue;
+	background-color: rgb(46,139,87);
 }
 
 h1 {
@@ -7,7 +7,6 @@ h1 {
 	font-size: 100px;
 	color: black;
 	text-align: center;
-	font-family: "Bernard MT Condensed";
 }
 
 .schriftgroeße {
@@ -36,13 +35,6 @@ h4{
 	text-align: center;
 }
 
-
-h5{
-	color: black;
-	font-family: "Arial";
-	text-align: right;
-}
-
 .flexibles_div1 div {
 	border: 2px solid black;
 	width: 200px;
@@ -58,9 +50,40 @@ h5{
 }
 
 .zurück{
-
+	border: medium solid rgb(255,127,036);
+	background-color: rgb(255,127,036);
+	color: white;
+}
+.zurück:focus {
+border: medium dotted white;
+}
+.zurück:active {
+border: medium dotted darkgreen;
 }
 
 .erneutSpielen{
+	border: medium solid rgb(255,127,036);
+	background-color: rgb(255,127,036);
+	color: white;
+}
+.erneutSpielen:focus {
+border: medium dotted white;
+}
+.erneutSpielen:active {
+border: medium dotted darkgreen;
+}
 
+.rangliste{
+	text-align: right;
+}
+.rangliste{
+	border: medium solid rgb(255,127,036);
+	background-color: rgb(255,127,036);
+	color: white;
+}
+.rangliste:focus {
+border: medium dotted white;
+}
+.rangliste:active {
+border: medium dotted darkgreen;
 }
