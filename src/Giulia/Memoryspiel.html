@@ -9,7 +9,6 @@
     var memory_values = [];
     var memory_tile_ids = [];
     var tiles_flipped = 0;
-    var klickZaehler = 0;
     Array.prototype.memory_tile_shuffle = function(){
         var i = this.length, j, temp;
         while(--i > 0){
@@ -70,7 +69,7 @@
       var timeContainer = document.getElementById("timer-value");
       var startButton = document.getElementById("start-game");
       var timer = 0;
-      var maxTime = 30;
+      var maxTime = 120;
       var timeout = null;
       function count () {
         timeout = setTimeout(function () {
@@ -80,7 +79,7 @@
             count();
           }
           else {
-            alert("Time's up!");
+            alert("Die Zeit ist leider vorbei! Danke fürs mitspielen.");
             startButton.style.display = "inline-block";
           }
         }, 1000);
@@ -88,7 +87,7 @@
       function endGame () {
         clearTimeout(timeout);
         startButton.style.display = "inline-block";
-        alert("You completed the game in time!");
+        alert("Herzlichen Glückwunsch! Du hast das Memory in der vorgegebenen Zeit gelöst.");
       }
       function startGame () {
         if (timeout) { clearTimeout(timeout); }
@@ -103,19 +102,17 @@
 </script>
 </header>
 <body>
-    <a href= "../Paul/startseite.html"><button class="zurück">Zurück zum Anmelden</button></a>
-    <a href="../Dirk/rangliste.html"><button class="rangliste"> Rangliste </button></a>
-    <a href= "memoryspiel.html"><button class="erneutSpielen">Erneut spielen &#8635;</button></a>
-
+    <ul>
+    <a href= "../Paul/startseite.html"><button id="zurück">Zurück zum Anmelden</button></a>
+    <a href= "memoryspiel.html"><button id="erneutSpielen">Erneut spielen &#8635;</button></a>
+    <a href="../Dirk/rangliste.html"><button id="rangliste"> Rangliste </button></a>
+    </ul>
     <h1 class="schriftgroeße"> Finde die Paare </h1>
 
-    <h3>Timer: <span id="timer-value">0</span></h3>
-    <button id="start-game">Start Game</button> <button id="end-game">End Game</button>
+    <h3 id="zeit">Timer: <span id="timer-value">0</span>
+        <br>
+    <button id="start-game">Start Game</button> <button id="end-game">End Game</button></h3>
 
-    <div id="klickZaehler">
-            Klicks:
-              0
-    </div>
 <div id="memory_board"></div>
 </body>
 </section>

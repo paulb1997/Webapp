@@ -65,3 +65,37 @@ function memoryFlipTile(tile,val){
 		}
 	}
 }
+(function () {
+  var timeContainer = document.getElementById("timer-value");
+  var startButton = document.getElementById("start-game");
+  var timer = 0;
+  var maxTime = 120;
+  var timeout = null;
+  function count () {
+    timeout = setTimeout(function () {
+      if (timer < maxTime) {
+        timer++;
+        timeContainer.innerText = timer;
+        count();
+      }
+      else {
+        alert("Die Zeit ist leider vorbei! Danke fürs mitspielen.");
+        startButton.style.display = "inline-block";
+      }
+    }, 1000);
+  }
+  function endGame () {
+    clearTimeout(timeout);
+    startButton.style.display = "inline-block";
+    alert("Herzlichen Glückwunsch! Du hast das Memory in der vorgegebenen Zeit gelöst.");
+  }
+  function startGame () {
+    if (timeout) { clearTimeout(timeout); }
+    timer = 0;
+    timeContainer.innerText = timer;
+    this.style.display = "none";
+    count();
+  }
+  document.getElementById("start-game").addEventListener("click", startGame);
+  document.getElementById("end-game").addEventListener("click", endGame);
+})();

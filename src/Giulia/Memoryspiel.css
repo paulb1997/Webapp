@@ -13,16 +13,7 @@ h1 {
 	font-size: 50px;
 }
 
-.zeit{
-	font-size: 20px;
-	color: black;
-	font-family: "Arial";
-}
-
-#klickZaehler{
-	font-size: 20px;
-	color: black;
-	font-family: "Arial";
+#zeit{
 	text-align: center;
 }
 
@@ -47,41 +38,38 @@ div#memory_board > div{
 	text-align:center;
 }
 
-.zurück{
+#zurück{
 	border: medium solid rgb(255,127,036);
 	background-color: rgb(255,127,036);
 	color: white;
 }
-.zurück:focus {
+#zurück:focus {
 border: medium dotted white;
 }
-.zurück:active {
+#zurück:active {
 border: medium dotted darkgreen;
 }
 
-.erneutSpielen{
+#erneutSpielen{
 	border: medium solid rgb(255,127,036);
 	background-color: rgb(255,127,036);
 	color: white;
 }
-.erneutSpielen:focus {
+#erneutSpielen:focus {
 border: medium dotted white;
 }
-.erneutSpielen:active {
+#erneutSpielen:active {
 border: medium dotted darkgreen;
 }
 
-.rangliste{
-	text-align: right;
-}
-.rangliste{
+#rangliste{
 	border: medium solid rgb(255,127,036);
 	background-color: rgb(255,127,036);
 	color: white;
 }
-.rangliste:focus {
+#rangliste:focus {
 border: medium dotted white;
 }
-.rangliste:active {
+#rangliste:active {
 border: medium dotted darkgreen;
 }
