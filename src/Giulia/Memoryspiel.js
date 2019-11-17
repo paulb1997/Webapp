@@ -23,9 +23,6 @@ function zeitzaehler(){
 setInterval(zeitzaehler, 1000);
 
 function kartenwechsel(kartennummer){
-	if(startzeit==0){
-		startzeit = new Date();
-	}
 	klickZaehler++;
 	$('#klickZaehler').html('Klicks:'+ klickZaehler);
 	$('#karte-'+kartennummer).html('<img src="Karte-'+kartennummer+'.jpg" alt="Motivkarte">');
