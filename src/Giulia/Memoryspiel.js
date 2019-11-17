@@ -4,9 +4,8 @@ import stylesheet from "./memoryspiel.css";
 import overview from "./memoryspiel.html";
 
 function showUsername(){
-	var name = $('#username_input').val();
-	$('#username').html('Hallo '+name+ '  :)');
-	$('#username_container').slideUp();
+	var name = $('#user').val();
+	$('#username').html('Hallo '+name+);
 }
 
 	var ersteKarte=0;
