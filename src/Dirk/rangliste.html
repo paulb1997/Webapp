@@ -3,8 +3,8 @@
 		<title> Memory-Rangliste </title>
 		<meta charset= "UTF-8">
 		<link rel="stylesheet" href="rangliste.css">
+		<script type="text/javascript" src="rangliste.js"> </script>
 		<script src="jquery-3.1.1.min.js"> </script>
-		<script src="rangliste.js"> </script>
 </head>
 <body>
 	<div class="zurück">
@@ -19,56 +19,105 @@
         </tr>
         <tr>
             <td>1.</td>
-            <td></td>
+            <td id="erster"></td>
             <td></td>
         </tr>
 		<tr>
             <td>2.</td>
-            <td></td>
+            <td id="zweiter"></td>
             <td></td>
         </tr>
 		<tr>
             <td>3.</td>
-            <td></td>
+            <td id="dritter"></td>
             <td></td>
         </tr>
 		<tr>
             <td>4.</td>
-            <td></td>
+            <td id="vierter"></td>
             <td></td>
         </tr>
 		<tr>
             <td>5.</td>
-            <td></td>
+            <td id="fünfter"></td>
             <td></td>
         </tr>
 		<tr>
             <td>6.</td>
-            <td></td>
+            <td id="sechster"></td>
             <td></td>
         </tr>
 		<tr>
             <td>7.</td>
-            <td></td>
+            <td id="siebter"></td>
             <td></td>
         </tr>
 		<tr>
             <td>8.</td>
-            <td></td>
+            <td id="achter"></td>
             <td></td>
         </tr>
 		<tr>
             <td>9.</td>
-            <td></td>
+            <td id="neunter"></td>
             <td></td>
         </tr>
 		<tr>
             <td>10.</td>
-            <td></td>
+            <td id="zehnter"></td>
             <td></td>
         </tr>
     </table>
 	<img id="links" src="Emoji.png" alt="Failed">
 	<img id="rechts" src="Emoji.png" alt="Failed">
+	<script type="text/javascript">
+		window.addEventListener("load", () => {
+			import { liste } from './index.html';
+		function einsortieren (user a){
+			if(liste[0]==="Frei"){
+				liste[0]=a.name;
+			}else if (liste[0].rang<a.rang) {
+				liste[0]=a.name;
+			}else if (liste[1]==="Frei"){
+				liste[1]=a.name;
+			}else if (liste[1].rang<a.rang) {
+				liste[1]=a.name;
+			}else if (liste[2]==="Frei"){
+				liste[2]=a.name;
+			}else if (liste[2].rang<a.rang) {
+				liste[2]=a.name;
+			}else if (liste[3]==="Frei"){
+				liste[3]=a.name;
+			}else if (liste[3].rang<a.rang) {
+				liste[3]=a.name;
+			}else if(liste[4]==="Frei"){
+				liste[4]=a.name;
+			}else if (liste[4].rang<a.rang) {
+				liste[4]=a.name;
+			}else if(liste[0]==="Frei"){
+				liste[5]=a.name;
+			}else if (liste[5].rang<a.rang) {
+				liste[5]=a.name;
+			}else if(liste[6]==="Frei"){
+				liste[6]=a.name;
+			}else if (liste[6].rang<a.rang) {
+				liste[6]=a.name;
+			}else if(liste[7]==="Frei"){
+				liste[7]=a.name;
+			}else if (liste[7].rang<a.rang) {
+				liste[7]=a.name;
+			}else if(liste[8]==="Frei"){
+				liste[8]=a.name;
+			}else if (liste[8].rang<a.rang) {
+				liste[8]=a.name;
+			}else if (liste[9]==="Frei"){
+				liste[9]=a.name;
+			}else if (liste[9].rang<a.rang) {
+				liste[9]=a.name;
+			}
+		}
+
+}
+	</script>
 </body>
 </section>
