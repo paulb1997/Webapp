@@ -2,12 +2,12 @@
     <head>
         <meta charset="utf-8" />
         <title>Memory-Spiel</title>
-        <link rel="stylesheet" href="startseite.css">
-        <script  type="text/javascript" src="startseite.js"></script>
+
     </head>
     <body>
         <section id="app">
             <header>
+                <a class="nav-link" href="Dirk/rangliste.html"><button>Rangliste</button></a>
             </header>
 
             <main>
@@ -19,18 +19,8 @@
                     </label>
                 </form>
 
-                <button id="Bestätigen" onclick="namespeichern()">Bestätigen</button>
+                <button id="bestätigen">Bestätigen</button>
                 <a class="nav-link" href="../Giulia/memoryspiel.html"><button class="button" id="anmelden" onclick="showUsername()">Anmelden</button>
             </main>
-            <script type="text/javascript">
-                function user (name, rang){
-                    this.name=name;
-                    this.rang=rang;
-                }
-            function namespeichern(){
-                var x = document.getElementById("nameeintragen").value;
-                var neueruser = new user(x,0);
-            }
-            </script>
     </body>
 </section>
