@@ -3,66 +3,41 @@
     <head>
         <meta charset="utf-8" />
         <title>Memory</title>
-
-        <script src="app.js"></script>
-        <script src="index.js"></script>
-        <link rel="stylesheet" href="startseite.css">
-        <script  type="text/javascript" src="startseite.js"></script>
-
-        <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous"
-        >
-
-        <script
-            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"
-        >
-            JQUERY
-        </script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"
-        >
-            POPPER
-        </script>
-        <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"
-        >
-            BOOTSRAP
-        </script>
+        <script  type="text/javascript" src="index.js"></script>
     </head>
     <body>
         <section id="app">
             <header>
-                <nav class="navbar navbar-expand-sm bg-light">
-                    <ul class="navbar-nav">
+                <nav class="navbar navbar-expand-sm bg-dark">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/Memoryspiel/" data-navigo>Spielen</a>
+                        </li>
                         <li class="nav-item">
-                          <a class="nav-link">Disabled</a>
+                            <a class="nav-link" href="/Startseite/" data-navigo>Anmelden</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Rangliste/" data-navigo>Rangliste</a>
                         </li>
                     </ul>
                 </nav>
             </header>
+            <main></main>
+        </section>
+        <section id = Startseite class="hidden" >
             <main>
-                <!-- dynamic content goes here -->
-                <h1 id="Überschrift" class="überschrift1">Herzlich Willkommen bei unserem Memoryspiel!</h1>
-                <h2>Um Memory spielen zu können, musst du dich hier anmelden.</h2>
-                <input type="text" name="Eingabe" value=""  />
-                <button id="Knopf" onclick="Test">Hallo</button>
-                <a class="nav-link" href="Paul/startseite.html"><button class="button">Anmelden</button></a>
-            <script type="text/javascript">
-            window.addEventListener("load", () => {
-            var liste = ["Frei","Frei","Frei","Frei","Frei","Frei","Frei","Frei","Frei","Frei",]
-            export { liste };
-        }
-            </script>
+                <h1 class="überschrift1">Herzlich Willkommen bei unserem Memoryspiel!</h1>
+                <h2>Um Memory spielen zu können, musst du hier einen Benutzername eingeben.</h2>
+                <form>
+                        <label for="user">Benutzername einntragen:
+                                <input type="text" id="nameeintragen" name="user"placeholder="Benutzername">
+                        </label>
+                </form>
+                <button id="bestätigen">Bestätigen</button>
             </main>
+        </section>
+        <section id = Memoryspiel class="hidden">
+
         </section>
     </body>
 </html>

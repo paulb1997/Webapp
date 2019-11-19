@@ -3,9 +3,9 @@
 import stylesheet from "./app.css";
 
 import Navigo from "navigo/lib/navigo.js";
-import Overview from "./Paul/startseite.js";
-import Rangliste from "./Dirk/rangliste.js";
-import Memoryspiel from "./Giulia/Memoryspiel.js";
+import Overview from "./Startseite/startseite.js";
+import Rangliste from "./Rangliste/rangliste.js";
+import Memoryspiel from "./Memoryspiel/Memoryspiel.js";
     /**
      * Hauptklasse der Anwendung. Kümmert sich darum, die Anwendung auszuführen
      * und die angeforderten Bildschirmseiten anzuzeigen.
@@ -17,40 +17,48 @@ import Memoryspiel from "./Giulia/Memoryspiel.js";
         constructor() {
             this._title = "My App";
             this._currentView = null;
+            this.initRouter();
+}
 
-        this._router = new Navigo(null, true);
+initRouter(){
+
+        console.log("init Router");
+        this._router = new Navigo("http://localhost1234/", false);
         this._currentUrl = "";
-
         this._router.on({
-            "detail/display/:id":   params => this.showDetail(params.id, "display"),
-            "detail/new":           () => this.showDetail("", "new"),
-            "overview":            () => this.showOverview(),
-            "*":                    () => this.showOverview(),
+            "Startseite":           () =>{ this.ShowStartseite();},
+            "Memoryspiel":          () =>{ this.showMemoryspiel();},
+            "Rangliste":            () =>{ this.showRangliste();},
+               "*": () =>{ this.showSrtartPage();},
         });
+    }
 
-        this._router.hooks({
-        after: (params) => {
-                // Navigation durchführen, daher die neue URL merken
-                this._currentUrl = this._router.lastRouteResolved().url;
-                }
-            }
-        );
-        }
+    start(){
+        console.log("Die Klasse App sagt Hallo!");
+        this._router.resolve();
+    }
+ShowStartseite(){
+    let view = new Startseite(this);
+    this._switchVisibleView(view);
+}
+showMemoryspiel(){
+    let view = new Memoryspiel(this);
+    this._switchVisibleView(view);
+}
+showRangliste(){
+    let view = new Rangliste(this);
+    this._switchVisibleView(view);
+}
 
-        /**
-         * Ab hier beginnt die Anwendung zu laufen.
-         */
-        start() {
-            console.log("Die Klasse App sagt Hallo!");
-            this._router.resolve();
-        }
 
         _switchVisibleView(view) {
             // Alles klar, aktuelle View nun wechseln
             document.title = `${this._title} – ${view.title}`;
 
             this._currentView = view;
-            this._switchVisibleContent(view.onShow());
+            console.log()
+            var content = await view.onShow();
+            this._switchVisibleContent(content);
             return true;
         }
 
@@ -72,18 +80,12 @@ import Memoryspiel from "./Giulia/Memoryspiel.js";
         }
 
 
-        if (content && content.topbar) {
-            content.topbar.forEach(element => {
-                element.classList.add("bottom");
-                header.appendChild(element);
-            });
-        }
-        // Neue Inhalte des Hauptbereichs einfügen
         if (content && content.main) {
             content.main.forEach(element => {
                 main.appendChild(element);
             });
         }
+        this._router.updatePageLinks();
     }
 }
 
