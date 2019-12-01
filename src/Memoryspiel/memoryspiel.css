@@ -1,17 +1,12 @@
-body {
-	background-color: rgb(46,139,87);
-}
 
-h1 {
+.überschiftmemory {
 	font-style:  oblique;
 	font-size: 100px;
-	color: black;
+	color: darkblue;
 	text-align: center;
 }
 
-.schriftgroeße {
-	font-size: 50px;
-}
+
 
 #zeit{
 	text-align: center;
@@ -20,20 +15,23 @@ h1 {
 div#memory_board{
 	background:#CCC;
 	border:#999 1px solid;
-	width:720px;
-	height:570px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	width:80vw;
+	height:80vh;
 	padding:24px;
 	margin:0px auto;
 }
 div#memory_board > div{
 	background: url(memoryRückseite.png) no-repeat;
 	border:#000 1px solid;
-	width:80px;
-	height:80px;
+	width:180px;
+	height:180px;
 	float:left;
 	margin:10px;
 	padding:20px;
-	font-size:64px;
+	font-size:90px;
 	cursor:pointer;
 	text-align:center;
 }

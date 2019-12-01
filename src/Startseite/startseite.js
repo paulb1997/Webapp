@@ -1,25 +1,29 @@
-import Databse from "../database.js";
-
-export async function loadPlayer() {
-  return new Promise(async resolve => {
-    let player = new Database.Player();
-    var elements = await player.getAll();
-}
-
-export async function addPlayer() {
-  let player = new Database.Player();
-  var newUsername = document.getElementById("nameeintragen").value;
-
-  if (newUsername == "") {
-    alert("Bitte namen eintragen!");
-    return;
+"use strict";
+import Database from "../database.js";
+class Startseite {
+  constructor(app, player) {
+    this.app = app;
+    this.player = player;
   }
-  await Promise.all([
-   player.saveNew({
-     name: newUsername,
-     punkte: 0,
-   })
- ]);
+
+  async showStartseite() {
+    let template = await import("./startseite.html");
+    let div = document.createElement("div");
+    div.innerHTML = template.trim();
+    document.getElementById("content").appendChild(div);
+    document
+      .getElementById("bestätigenknopf")
+      .addEventListener("click", async () => {
+        let spieler = new Database.Player();
+        let name = document.getElementById("nameeintragen").value;
+        await Promise.all([
+          spieler.saveplayer({
+            name: name,
+            punkte: 0
+          })
+        ]);
+      });
+  }
 }
 
-document.getElementById("bestätigen").addEventlistener("click", addPlayer);
+export default Startseite;

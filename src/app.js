@@ -2,65 +2,89 @@
 
 import stylesheet from "./app.css";
 
-import Navigo from "navigo/lib/navigo.js";
-import Overview from "./Startseite/startseite.js";
-import Rangliste from "./Rangliste/rangliste.js";
-import Memoryspiel from "./Memoryspiel/Memoryspiel.js";
+import Navigo from "navigo";
+import Startseite from "./Startseite/startseite";
+import Rangliste from "./Rangliste/rangliste";
+import Memoryspiel from "./Memoryspiel/memoryspiel";
+/**
+ * Hauptklasse der Anwendung. Kümmert sich darum, die Anwendung auszuführen
+ * und die angeforderten Bildschirmseiten anzuzeigen.
+ */
+class App {
     /**
-     * Hauptklasse der Anwendung. Kümmert sich darum, die Anwendung auszuführen
-     * und die angeforderten Bildschirmseiten anzuzeigen.
+     * Konstruktor.
      */
-    class App {
-        /**
-         * Konstruktor.
-         */
-        constructor() {
-            this._title = "My App";
-            this._currentView = null;
-            this.initRouter();
-}
+    constructor() {
 
-initRouter(){
+        this._title = "My App";
+        this._currentView = null;
+        this.initRouter();
+        this._router.hooks({
+                after: (params) => {
+                    // Navigation durchführen, daher die neue URL merken
+                    this._currentUrl = this._router.lastRouteResolved().url;
+                }
+            }
+        );
+    }
+
+    initRouter() {
 
         console.log("init Router");
-        this._router = new Navigo("http://localhost1234/", false);
+        this._router = new Navigo("http://localhost:1234/", false);
         this._currentUrl = "";
         this._router.on({
-            "Startseite":           () =>{ this.ShowStartseite();},
-            "Memoryspiel":          () =>{ this.showMemoryspiel();},
-            "Rangliste":            () =>{ this.showRangliste();},
-               "*": () =>{ this.showSrtartPage();},
+            "Startseite": () => {
+                this.showStartseite();
+            },
+            "Memoryspiel": () => {
+                this.showMemoryspiel();
+            },
+            "Rangliste": () => {
+                this.showRangliste();
+            },
+            "*": () => {
+                this.showStartseite();
+            },
         });
     }
 
-    start(){
+    start() {
         console.log("Die Klasse App sagt Hallo!");
         this._router.resolve();
     }
-ShowStartseite(){
-    let view = new Startseite(this);
-    this._switchVisibleView(view);
-}
-showMemoryspiel(){
-    let view = new Memoryspiel(this);
-    this._switchVisibleView(view);
-}
-showRangliste(){
-    let view = new Rangliste(this);
-    this._switchVisibleView(view);
-}
+
+    async showStartseite() {
+        document.getElementById("content").innerHTML = "";
+        let startseite = new Startseite();
+        await startseite.showStartseite();
+    }
+
+    async showMemoryspiel() {
+        this._router.updatePageLinks();
+        document.getElementById("content").innerHTML = "";
+        let memoryspiel = new Memoryspiel();
+        await memoryspiel.showPage();
+    }
+
+    async showRangliste() {
+        this._router.updatePageLinks();
+        document.getElementById("content").innerHTML = "";
+        let rangliste = new Rangliste(["Kev", "Dir", "Flo"]);
+        await rangliste.showPage();
+    }
 
 
-        _switchVisibleView(view) {
-            // Alles klar, aktuelle View nun wechseln
-            document.title = `${this._title} – ${view.title}`;
+    async _switchVisibleView(view) {
+        // Alles klar, aktuelle View nun wechseln
+        document.title = `${this._title} – ${view.title}`;
 
-            this._currentView = view;
-            console.log()
-            var content = await view.onShow();
-            this._switchVisibleContent(content);
-            return true;
-        }
+        this._currentView = view;
+        console.log()
+        var content = await view.onShow();
+        this._switchVisibleContent(content);
+        return true;
+    }
 
     _switchVisibleContent(content) {
         // <header> und <main> des HTML-Grundgerüsts ermitteln
@@ -89,4 +113,4 @@ showRangliste(){
     }
 }
 
-    export default App;
+export default App;

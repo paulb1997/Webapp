@@ -1,14 +1,4 @@
 <section id="rangliste" class="hidden">
-<head>
-		<title> Memory-Rangliste </title>
-		<link rel="stylesheet" href="rangliste.css">
-		<script type="text/javascript" src="rangliste.js"> </script>
-		<script src="jquery-3.1.1.min.js"> </script>
-</head>
-<body>
-	<div id="zurück">
-		<a href= "../Memoryspiel(Giulia)/memoryspiel.html"><button>Zurück zum Spiel</button></a>
-	</div>
 	<h1>Rangliste</h1>
     <table>
         <tr>
@@ -69,68 +59,4 @@
     </table>
 	<img id="links" src="Emoji.png" alt="Failed">
 	<img id="rechts" src="Emoji.png" alt="Failed">
-	<script type="text/javascript">
-		window.addEventListener("load", () => {
-			import { liste } from './index.html';
-			import { neueruser} from './Memoryspiel.html';
-			einsortieren(neueruser)
-			listeeinfuegen();
-		}
-		function listeeinfuegen (){
-    		document.getElementById("erster").innerHTML=liste[0];
-			document.getElementById("zweiter").innerHTML=liste[1];
-			document.getElementById("dritter").innerHTML=liste[2];
-			document.getElementById("vierter").innerHTML=liste[3];
-			document.getElementById("fünfter").innerHTML=liste[4];
-			document.getElementById("sechster").innerHTML=liste[5];
-			document.getElementById("siebter").innerHTML=liste[6];
-			document.getElementById("achter").innerHTML=liste[7];
-			document.getElementById("neunter").innerHTML=liste[8];
-			document.getElementById("zehnter").innerHTML=liste[9];
-		}
-		function einsortieren (user a){
-			if(liste[0]==="Frei"){
-				liste[0]=a.name;
-			}else if (liste[0].rang>a.rang) {
-				liste[0]=a.name;
-			}else if (liste[1]==="Frei"){
-				liste[1]=a.name;
-			}else if (liste[1].rang>a.rang) {
-				liste[1]=a.name;
-			}else if (liste[2]==="Frei"){
-				liste[2]=a.name;
-			}else if (liste[2].rang>a.rang) {
-				liste[2]=a.name;
-			}else if (liste[3]==="Frei"){
-				liste[3]=a.name;
-			}else if (liste[3].rang>a.rang) {
-				liste[3]=a.name;
-			}else if(liste[4]==="Frei"){
-				liste[4]=a.name;
-			}else if (liste[4].rang>a.rang) {
-				liste[4]=a.name;
-			}else if(liste[0]==="Frei"){
-				liste[5]=a.name;
-			}else if (liste[5].rang>a.rang) {
-				liste[5]=a.name;
-			}else if(liste[6]==="Frei"){
-				liste[6]=a.name;
-			}else if (liste[6].rang>a.rang) {
-				liste[6]=a.name;
-			}else if(liste[7]==="Frei"){
-				liste[7]=a.name;
-			}else if (liste[7].rang>a.rang) {
-				liste[7]=a.name;
-			}else if(liste[8]==="Frei"){
-				liste[8]=a.name;
-			}else if (liste[8].rang>a.rang) {
-				liste[8]=a.name;
-			}else if (liste[9]==="Frei"){
-				liste[9]=a.name;
-			}else if (liste[9].rang>a.rang) {
-				liste[9]=a.name;
-			}
-		}
-	</script>
-</body>
 </section>

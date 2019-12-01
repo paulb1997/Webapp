@@ -6,30 +6,48 @@ body {
 	font-family: sans-serif;
 
 }
-h1{
-	position: absolute;
-	top: 10%;
-	left: 40%;
-}
-h2{
-	position: absolute;
-	top: 30%;
-	left: 20%;
-}
-form{
-	position: absolute;
-	top: 50%;
-	left: 40%;
+
+.überschrift1{
+	font-style:  oblique;
+	font-size: 90px;
+	color: black;
+	text-align: center;
 }
 
-#Bestätigen {
-	position: absolute;
-	top: 60%;
-	left: 50%;
+.unterüberschriftstartseite{
+	font-style:  oblique;
+	font-size: 60px;
+	color: black;
+	text-align: center;
 }
 
-#anmelden {
-	position: absolute;
-	top: 60%;
-	left: 60%;
+.anmeldeformular{
+	font-style:  oblique;
+	font-size: 30px;
+	color: black;
+	text-align: center;
+	margin-bottom: 40px;
+}
+#bestätigenknopf {
+	display:block;
+   width:20%;
+   margin:0 auto;
+   position:relative;
+   font-style:normal;
+   font-weight:normal;
+   font-family:"Open Sans";
+   font-size:20px;
+   outline:none;
+   color:white;
+   border:none;
+   text-decoration:none;
+   text-align:center;
+   cursor:pointer;
+   border-radius:12px;
+   background-color:darkgreen;
+}
+.bestätigenknopf:hover {
+	background-color: lightgreen;
+	color: black;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
